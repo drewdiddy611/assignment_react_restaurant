@@ -1,6 +1,76 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+
+const ReservationForm = React.createClass({
+  getInitialState() {
+    return {
+      reservationState: {
+        name: "",
+        date: "",
+        time: "",
+        guests: 1
+      }
+    };
+  },
+
+  handleChange(e) {
+    const newState = {reservationState: {}};
+    newState.reservationState[e.target.name] = e.target.value
+    this.setState(newState);
+  },
+
+  render() {
+    return (
+      <form>
+        <FormGroup controlId="name">
+          <ControlLabel>Name</ControlLabel>
+          <FormControl
+            type="text"
+            value={this.state.reservationState.name}
+            placeholder="Name"
+            onChange={this.handleChange}
+          />
+          <FormControl.Feedback />
+        </FormGroup>
+
+        <FormGroup controlId="date">
+          <ControlLabel>Date</ControlLabel>
+          <FormControl
+            type="date"
+            value={this.state.reservationState.date}
+            onChange={this.handleChange}
+          />
+          <FormControl.Feedback />
+        </FormGroup>
+
+        <FormGroup controlId="time">
+          <ControlLabel>Time</ControlLabel>
+          <FormControl
+            type="text"
+            value={this.state.reservationState.time}
+            placeholder="Time"
+            onChange={this.handleChange}
+          />
+          <FormControl.Feedback />
+        </FormGroup>
+
+        <FormGroup controlId="guests">
+          <ControlLabel>Guests</ControlLabel>
+          <FormControl
+            type="number"
+            min=1
+            max=10
+            value={this.state.reservationState.guests}
+            onChange={this.handleChange}
+          />
+          <FormControl.Feedback />
+        </FormGroup>
+      </form>
+    );
+  }
+});
 
 const NavLink = props => {
   let { href, text } = props;
@@ -63,6 +133,10 @@ const Jumbotron = () => {
     </div>
   );
 };
+
+// name, date, time, # of people
+
+const ReservationForm = () => {};
 
 class App extends Component {
   render() {
