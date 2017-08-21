@@ -28,6 +28,22 @@ body {
 	margin-top: -20px;
 }
 
+.reservation-row {
+	margin-bottom: 4em;
+	margin-left: 2em;
+	margin-right: 2em;
+	background-image: linear-gradient(
+		to top,
+		#fff 0%,
+		#eee 10%,
+		#eee 90%,
+		#fff 100%
+	);
+
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-bottom: 2em;
+}
 .reserve-image {
 	margin-top: 50px;
 }
@@ -54,4 +70,21 @@ body {
 h1,
 h2 {
 	font-family: "Pacifico", sans-serif;
+}
+
+hr.style15 {
+	border-top: 4px double #8c8b8b;
+	text-align: center;
+}
+hr.style15:after {
+	content: '\002665';
+	display: inline-block;
+	position: relative;
+	top: -15px;
+	padding: 0 10px;
+	background: #f0f0f0;
+	border: 1px solid #ccc;
+	border-radius: 35%;
+	color: #8c8b8b;
+	font-size: 18px;
 }
