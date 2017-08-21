@@ -1,152 +1,92 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-
-const ReservationForm = React.createClass({
-  getInitialState() {
-    return {
-      reservationState: {
-        name: "",
-        date: "",
-        time: "",
-        guests: 1
-      }
-    };
-  },
-
-  handleChange(e) {
-    const newState = {reservationState: {}};
-    newState.reservationState[e.target.name] = e.target.value
-    this.setState(newState);
-  },
-
-  render() {
-    return (
-      <form>
-        <FormGroup controlId="name">
-          <ControlLabel>Name</ControlLabel>
-          <FormControl
-            type="text"
-            value={this.state.reservationState.name}
-            placeholder="Name"
-            onChange={this.handleChange}
-          />
-          <FormControl.Feedback />
-        </FormGroup>
-
-        <FormGroup controlId="date">
-          <ControlLabel>Date</ControlLabel>
-          <FormControl
-            type="date"
-            value={this.state.reservationState.date}
-            onChange={this.handleChange}
-          />
-          <FormControl.Feedback />
-        </FormGroup>
-
-        <FormGroup controlId="time">
-          <ControlLabel>Time</ControlLabel>
-          <FormControl
-            type="text"
-            value={this.state.reservationState.time}
-            placeholder="Time"
-            onChange={this.handleChange}
-          />
-          <FormControl.Feedback />
-        </FormGroup>
-
-        <FormGroup controlId="guests">
-          <ControlLabel>Guests</ControlLabel>
-          <FormControl
-            type="number"
-            min=1
-            max=10
-            value={this.state.reservationState.guests}
-            onChange={this.handleChange}
-          />
-          <FormControl.Feedback />
-        </FormGroup>
-      </form>
-    );
-  }
-});
-
-const NavLink = props => {
-  let { href, text } = props;
-  return (
-    <li className="nav-item">
-      <a href={href} className="nav-link">
-        {text}
-      </a>
-    </li>
-  );
-};
-
-// <nav class="navbar navbar-default">
-//   <div class="container-fluid">
-//     <div class="navbar-header">
-//
-//     </div>
-//   </div>
-// </nav>
-const Nav = () => {
-  const links = [
-    { key: 0, text: "Welcome", href: "/" },
-    { key: 1, text: "Reservations", href: "/reservations" },
-    { key: 2, text: "Menu", href: "/menu" },
-    { key: 3, text: "Contact Us", href: "/contact" }
-  ];
-  return (
-    <div>
-      <nav className="navbar navbar-default">
-        <div className="container-fluid">
-          <div className="navbar-header">
-            <ul className="nav navbar-nav">
-              {links.map(link =>
-                <NavLink key={link.key} href={link.href} text={link.text} />
-              )}
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
-  );
-};
+import React, { Component } from 'react';
+//import logo from './logo.svg';
+import './App.css';
+import Jumbotron from './lib/jumbotron';
+import NavBar from './lib/navbar';
+import ReservationForm from './lib/reservation-form';
+import MenuItem from './lib/menu-item';
 
 const Header = () => {
-  return (
-    <div>
-      <Jumbotron />
-      <Nav />
-    </div>
-  );
-};
-
-const Jumbotron = () => {
-  return (
-    <div className="jumbotron">
-      <h1>Our Restaurant</h1>
-      <h1>
-        <small>We make the best chicken sandwiches</small>
-      </h1>
-    </div>
-  );
+	return (
+		<div>
+			<Jumbotron />
+			<NavBar />
+		</div>
+	);
 };
 
 // name, date, time, # of people
-
-const ReservationForm = () => {};
-
 class App extends Component {
-  render() {
-    return (
-      <div className="container">
-        <Header />
-        <hr />
-      </div>
-    );
-  }
+	render() {
+		const menuItems = [
+			{
+				name: 'Finest Pizza',
+				imageSrc:
+					'https://jimsplacepizza.com/wp-content/uploads/2014/05/image.jpeg',
+				desc: 'Amazing, yummy pizza',
+				price: 5000.0
+			},
+			{
+				name: 'Finest Lasagna',
+				imageSrc:
+					'http://1.bp.blogspot.com/-AHLy82PR_5g/Tz_Pxyw4ueI/AAAAAAAAAn0/K4d24Mba3mE/s1600/raw_lasagna.jpg',
+				desc: 'Decadent, illustrious lasagna',
+				price: 10000.0
+			},
+			{
+				name: 'Finest Alfredo',
+				imageSrc:
+					'http://www.cupcakediariesblog.com/wp-content/uploads/2016/02/shrimp-fettuccine-alfredo-2.jpg',
+				desc: 'Smooth, creamy Alfreda',
+				price: 15000.0
+			},
+			{
+				name: 'Finest Shrimp',
+				imageSrc:
+					'http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2007/08/fine-dining-restaurants-kw.gif',
+				desc: 'Fresh, delicious shrimp',
+				price: 100000.0
+			}
+		];
+		return (
+			<div className="container">
+				<Header />
+				<hr />
+				<div className="row">
+					<div className="col-md-6">
+						<a href="#" className="thumbnail reserve-image">
+							<img
+								src="http://www.topoftheworldlv.com/images/steak_plate_TOW.png"
+								alt="mmmmm, food"
+							/>
+						</a>
+					</div>
+					<div className="col-md-6">
+						<div className="page-header">
+							<h2>Reserve your table today!</h2>
+						</div>
+						<ReservationForm />
+					</div>
+				</div>
+				<div className="page-header">
+					<h1 className="text-center">Our Menu</h1>
+				</div>
+				{menuItems.map(item =>
+					<div className="row">
+						<div className="col-md-10 col-md-offset-1">
+							<MenuItem
+								key={item.name}
+								imageSrc={item.imageSrc}
+								name={item.name}
+								price={item.price}
+								desc={item.desc}
+							/>
+						</div>
+					</div>
+				)}
+			</div>
+		);
+	}
 }
 
 export default App;

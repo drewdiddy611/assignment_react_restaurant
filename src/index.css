@@ -26,3 +26,13 @@ body {
 	padding-left: 50px;
 	margin-top: -20px;
 }
+
+.reserve-image {
+	margin-top: 50px;
+}
+
+.menu-item img {
+	max-width: 380px;
+	padding-right: 1em;
+	border-right: 1px solid #efefef;
+}
