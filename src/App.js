@@ -5,11 +5,11 @@ import "./App.css";
 const NavLink = props => {
   let { href, text } = props;
   return (
-    <a href={href} className="nav-link">
-      <li className="nav-item">
+    <li className="nav-item">
+      <a href={href} className="nav-link">
         {text}
-      </li>
-    </a>
+      </a>
+    </li>
   );
 };
 
