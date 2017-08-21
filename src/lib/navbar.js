@@ -1,14 +1,14 @@
-import React from 'react'; //, { Component } from 'react';
-import NavLink from './navlink';
+import React from "react"; //, { Component } from 'react';
+import NavLink from "./navlink";
 const NavBar = () => {
 	const links = [
-		{ key: 0, text: 'Welcome', href: '/' },
-		{ key: 1, text: 'Reservations', href: '/reservations' },
-		{ key: 2, text: 'Menu', href: '/menu' },
-		{ key: 3, text: 'Contact Us', href: '/contact' }
+		{ key: 0, text: "Welcome", href: "#top" },
+		{ key: 1, text: "Reservations", href: "#reservations" },
+		{ key: 2, text: "Menu", href: "#menu" },
+		{ key: 3, text: "Contact Us", href: "#contact" }
 	];
 	return (
-		<nav className="navbar navbar-default">
+		<nav className="navbar navbar-default" id="top">
 			<div className="container-fluid">
 				<div className="navbar-header">
 					<ul className="nav navbar-nav">

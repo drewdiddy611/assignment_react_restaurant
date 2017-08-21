@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { FormGroup, FormControl, ControlLabel, Button } from "react-bootstrap";
 
-class ReservationForm extends Component {
+class ContactForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			name: "",
-			date: "",
-			time: "",
-			guests: 1
+			email: "",
+			phone: "",
+			message: ""
 		};
 
 		this.handleChange = this.handleChange.bind(this);
@@ -35,34 +35,34 @@ class ReservationForm extends Component {
 					<FormControl.Feedback />
 				</FormGroup>
 
-				<FormGroup controlId="date">
-					<ControlLabel>Date</ControlLabel>
+				<FormGroup controlId="email">
+					<ControlLabel>Email</ControlLabel>
 					<FormControl
-						type="date"
-						value={this.state.date}
+						type="email"
+						value={this.state.email}
+						placeholder="yourname@example.com"
 						onChange={this.handleChange}
 					/>
 					<FormControl.Feedback />
 				</FormGroup>
 
-				<FormGroup controlId="time">
-					<ControlLabel>Time</ControlLabel>
+				<FormGroup controlId="phone">
+					<ControlLabel>Phone</ControlLabel>
 					<FormControl
 						type="text"
-						value={this.state.time}
-						placeholder="Time"
+						value={this.state.phone}
+						placeholder="555-555-5555"
 						onChange={this.handleChange}
 					/>
 					<FormControl.Feedback />
 				</FormGroup>
 
-				<FormGroup controlId="guests">
-					<ControlLabel>Guests</ControlLabel>
+				<FormGroup controlId="message">
+					<ControlLabel>Message</ControlLabel>
 					<FormControl
-						type="number"
-						min="1"
-						max="10"
-						value={this.state.guests}
+						componentClass="textarea"
+						placeholder="Your message here..."
+						value={this.state.message}
 						onChange={this.handleChange}
 					/>
 					<FormControl.Feedback />
@@ -74,4 +74,4 @@ class ReservationForm extends Component {
 	}
 }
 
-export default ReservationForm;
+export default ContactForm;
