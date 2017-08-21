@@ -1,5 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+.jumbotron {
+	background-image: url("http://www.technobuffalo.com/wp-content/uploads/2014/04/fast-food.jpg");
+	min-height: 600px;
+	background-size: cover;
+}
+
+.jumbotron h1 {
+	color: white;
+	text-shadow: 2px 2px 5px black;
+	font-family: "Pacifico", sans-serif;
+	font-size: 700%;
+}
+
+.jumbotron h1 small {
+	color: #99ffaa;
+	display: block;
+	font-size: 50%;
+	padding-left: 50px;
+	margin-top: -20px;
 }
