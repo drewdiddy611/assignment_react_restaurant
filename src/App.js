@@ -2,14 +2,21 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
+const NavLink = ({ text, href }) => {
+  return (
+    <a href={href}>
+      <li>
+        {text}
+      </li>
+    </a>
+  );
+};
+
 const Nav = () => {
   return (
     <div>
       <nav>
         <ul>
-          <a>
-            <li>Welcome</li>
-          </a>
           <a>
             <li>Reservations</li>
           </a>
