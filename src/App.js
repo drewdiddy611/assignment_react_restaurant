@@ -25,11 +25,11 @@ class App extends Component {
 				<Header />
 				<hr />
 				<ReservationForm />
-				<hr className="style15" />
+				<hr className="heart-divider" />
 				<MenuDisplay />
-				<hr className="style15" />
+				<hr className="heart-divider" />
 				<ContactForm />
-				<hr className="style15" />
+				<hr className="heart-divider" />
 				<GoogleMap />
 			</div>
 		);

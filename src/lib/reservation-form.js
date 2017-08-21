@@ -16,7 +16,6 @@ class ReservationForm extends Component {
 
 	handleChange(e) {
 		const newState = {};
-		console.log(e.target.id, e.target.value);
 		newState[e.target.id] = e.target.value;
 		this.setState(newState);
 	}

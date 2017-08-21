@@ -16,7 +16,6 @@ class ContactForm extends Component {
 
 	handleChange(e) {
 		const newState = {};
-		console.log(e.target.id, e.target.value);
 		newState[e.target.id] = e.target.value;
 		this.setState(newState);
 	}
@@ -27,7 +26,7 @@ class ContactForm extends Component {
 				<div className="page-header contact-us" id="contact">
 					<h2 className="text-center">Contact Us!</h2>
 				</div>
-				<div className="row">
+				<div className="row contact-row">
 					<div className="col-md-6 col-md-offset-3">
 						<form>
 							<FormGroup controlId="name">
